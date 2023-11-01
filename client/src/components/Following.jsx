@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { setFollowings } from '../state';
 import FlexBetween from './FlexBetween';
 import UserImage from './UserImage';
+import ReactGA from 'react-ga4';
 import { useState, useEffect } from 'react';
 
 const Following = ({ followingId, name, subtitle, userPicturePath }) => {
@@ -39,6 +40,11 @@ const Following = ({ followingId, name, subtitle, userPicturePath }) => {
       );
       const data = await response.json();
       dispatch(setFollowings({ followings: data }));
+      ReactGA.event({
+         category: 'Follow',
+         action: 'Following Set clicked',
+         label: 'Following panel',
+      });
    };
 
    return (
