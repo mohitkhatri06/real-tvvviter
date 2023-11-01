@@ -41,7 +41,7 @@ const Following = ({ followingId, name, subtitle, userPicturePath }) => {
       const data = await response.json();
       dispatch(setFollowings({ followings: data }));
       ReactGA.event({
-         category: 'Follow',
+         category: 'Button Click',
          action: 'Following Set clicked',
          label: 'Following panel',
       });

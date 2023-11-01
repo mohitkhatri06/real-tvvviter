@@ -6,6 +6,7 @@ import { setFollowers, setFollowings } from '../state';
 import FlexBetween from './FlexBetween';
 import UserImage from './UserImage';
 import { useState, useEffect } from 'react';
+import ReactGA from 'react-ga4';
 
 const Follower = ({ followerId, name, subtitle, userPicturePath }) => {
    const dispatch = useDispatch();
@@ -30,6 +31,11 @@ const Follower = ({ followerId, name, subtitle, userPicturePath }) => {
    const isSelf = followerId === _id;
 
    const patchFollower = async () => {
+      ReactGA.event({
+         category: 'Button Click',
+         action: 'Follower Set clicked',
+         label: 'Follower panel',
+      });
       setIsLoading(true);
       const response = await fetch(
          `${process.env.REACT_APP_API}/users/${_id}/${followerId}`,
