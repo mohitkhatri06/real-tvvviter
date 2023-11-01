@@ -9,7 +9,7 @@ import { createTheme } from '@mui/material/styles';
 import { themeSettings } from './theme';
 import ReactGA from 'react-ga4';
 
-ReactGA.initialize(process.env.REACT_APP_GATRACKING);
+ReactGA.initialize(process.env.REACT_APP_GA_TRACKING_CODE);
 
 ReactGA.send({
    hitType: 'pageview',
