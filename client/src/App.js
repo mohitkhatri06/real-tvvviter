@@ -7,15 +7,6 @@ import { useSelector } from 'react-redux';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { createTheme } from '@mui/material/styles';
 import { themeSettings } from './theme';
-import ReactGA from 'react-ga4';
-
-ReactGA.initialize(`${process.env.REACT_APP_GA_TRACKING_CODE}`);
-
-ReactGA.send({
-   hitType: 'pageview',
-   page: window.location.pathname,
-   title: 'Title',
-});
 
 function App() {
    const mode = useSelector((state) => state.mode);

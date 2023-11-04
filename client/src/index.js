@@ -5,6 +5,7 @@ import App from './App';
 import authReducer from './state';
 import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
+import ReactGA from 'react-ga4';
 import {
    persistStore,
    persistReducer,
@@ -29,6 +30,8 @@ const store = configureStore({
          },
       }),
 });
+
+ReactGA.initialize(`${process.env.REACT_APP_GA_TRACKING_CODE}`);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
